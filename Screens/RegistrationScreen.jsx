@@ -87,7 +87,9 @@ export default function RegistrationScreen() {
                             onPress={() => {
                                 setShowOPassword((prevState) => (!prevState));
                             }}>
-                            <Text>{showButton ? (showPassword? "Показати": "Сховати" ) : ""}</Text>
+                            <Text
+                            style={styles.buttonHidePassword}
+                            >{showButton ? (showPassword ? "Показати" : "Сховати") : ""}</Text>
                             </TouchableOpacity>
                 <TouchableOpacity
                             style={{ ...styles.button,  display: showInFocus ? "none" : "block" }}
@@ -127,7 +129,8 @@ const styles = StyleSheet.create({
     },
     form: {
         backgroundColor: '#ffffff',
-        borderRadius:25,
+        borderTopLeftRadius: 25,
+        borderTopRightRadius: 25,
     },
     photoBlock: {
         height: 120,
@@ -158,7 +161,8 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         marginHorizontal: 16,
         marginTop: 16,
-        paddingLeft: 16
+        paddingLeft: 16,
+        fontFamily:'Roboto-Regular'
     },
     showPassword: {
         width:70,
@@ -168,6 +172,11 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         marginRight: 25,
         backgroundColor:'transparent'
+    },
+    buttonHidePassword: {
+        color: '#1B4371',
+        fontFamily: 'Roboto-Regular',
+        fontSize:15
     },
     button: {
         marginHorizontal: 16,

@@ -18,7 +18,6 @@ export default function LoginScreen() {
     const [showButton, setShowButton] = useState(false);
     const [showInFocus, setShowInFocus] = useState(false);
 
-   
     const onSubmit = () => {
         Keyboard.dismiss();
         console.log(user.login);
@@ -28,6 +27,7 @@ export default function LoginScreen() {
         setShowButton(false),
         setShowInFocus(false)
     }
+
     const hideKeyboard = () => {
         Keyboard.dismiss();
         setShowInFocus(false)
@@ -82,7 +82,9 @@ export default function LoginScreen() {
                             onPress={() => {
                                 setShowOPassword((prevState) => (!prevState));
                             }}>
-                            <Text>{showButton ? (showPassword? "Показати": "Сховати" ) : ""}</Text>
+                            <Text
+                            style={styles.buttonHidePassword}
+                            >{showButton ? (showPassword ? "Показати" : "Сховати") : ""}</Text>
                             </TouchableOpacity>
                 <TouchableOpacity
                             style={{ ...styles.button,  display: showInFocus ? "none" : "block" }}
@@ -106,24 +108,29 @@ const styles = StyleSheet.create({
     container:{
         flex:1
     },
+
   image: {
     flex: 1,
       justifyContent: 'flex-end'
     },
+  
     title: {
         textAlign: 'center',
         fontSize: 30,
         marginBottom: 33,
         fontFamily:'Roboto-Regular'
-  },
+    },
+    
     block: {
         backgroundColor: '#ffffff',
         borderRadius:25,
     },
+
     form: {
         backgroundColor: '#ffffff',
         borderRadius:25,
     },
+
     photoBlock: {
         height: 120,
         borderRadius: 16,
@@ -132,12 +139,14 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: 'center'
     },
+
     buttonAdd: {
         width: 25,
         height:25,
         top: -30,
       left:55  
     },
+
     photo: {
         width: 120,
         height:120,
@@ -153,8 +162,10 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         marginHorizontal: 16,
         marginTop: 16,
-        paddingLeft: 16
+        paddingLeft: 16,
+        fontFamily:'Roboto-Regular'
     },
+
     showPassword: {
         width:70,
         position: 'relative',
@@ -164,6 +175,13 @@ const styles = StyleSheet.create({
         marginRight: 25,
         backgroundColor:'transparent'
     },
+
+    buttonHidePassword: {
+        color: '#1B4371',
+        fontFamily: 'Roboto-Regular',
+        fontSize:15
+    },
+
     button: {
         marginHorizontal: 16,
         marginTop: 43,
@@ -173,9 +191,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent:'center'
     },
+
     buttonText: {
         color:'#ffff'
     },
+
     haveAccount: {
         marginTop: 16,
         marginBottom: 78,
